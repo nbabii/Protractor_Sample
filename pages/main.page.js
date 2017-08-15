@@ -1,26 +1,32 @@
 import BasePage from "./base.page";
+import LoginPage from "./login.page";
+
 
 const _myAccBtn = by.xpath("//li[2]/*[@class='dropdown-toggle']");
 const _loginBtn = by.xpath("//a[@href='http://www.phptravels.net/login']"); 
 
 export default class MainPage extends BasePage {    
 
-    open() {
+    static open() {
         
-        console.log("Main Page loading ...");
-        browser.get("http://www.phptravels.net/en");
-        console.log("Main Page loaded");
+        browser.get("http://www.phptravels.net/en");        
 
-        return this;
+        return new MainPage();
     }
 
     navigateToLogin() {
+
         element(_myAccBtn).click();
         element(_loginBtn).click();
+
+        return new LoginPage();
     }
 
-    isPageAvailable() {
-
+    waitForPageAvailable() {
+        
+        browser.wait(ExpectedConditions.visibilityOf(element(_myAccBtn)), browser.params.explicitWait, "myAccBtn not present");
+        
+        return this;
     }
 
 }

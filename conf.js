@@ -7,6 +7,11 @@ exports.config = {
   seleniumAddress: "http://localhost:4444/wd/hub",
   specs: ["tests/suiteA_spec.js"],
 
+  params: {
+        implicitWait: 10000,
+        explicitWait: 20000
+    },
+
   capabilities: {
     "browserName": "chrome"
   },
@@ -16,16 +21,19 @@ exports.config = {
   },
 
   onPrepare: () => {        
-        browser.ignoreSynchronization = true;
+    browser.ignoreSynchronization = true;
+    browser.manage().timeouts().implicitlyWait(browser.params.implicitWait);
+    browser.manage().window().maximize(); 
 
-        jasmine.getEnv().addReporter(
-        new jasmine2HtmlReporter({
+    jasmine.getEnv().addReporter(
+      new jasmine2HtmlReporter({
           savePath: "result",
           screenshotsFolder: "screenshots",
-          showPassed: true,
+          showPassed: false,
           cleanDestination: true
-        })
-      );
-    }
+      })
+    );
+    
+  }
 
 };

@@ -2,14 +2,15 @@ import MainPage from "../pages/main.page";
 
 describe('Suite A', () => {
 
-  it("Test 1", () => {
-    new MainPage().open()
-    .navigateToLogin();
+  it("Test Main Page Availability", () => {
+    const isMainAvailable = MainPage.open().isPageAvailable;
+    expect(isMainAvailable).toBeTruthy();
   })
 
-  it("Test 2", () => {
-    new MainPage().open()
-    .navigateToLogin();
+  it("Test Login Page Availability", () => {
+    const isLoginAvailable = MainPage.open()
+      .navigateToLogin().isPageAvailable;
+    expect(isLoginAvailable).toBeTruthy();
   })
 
 });
