@@ -16,6 +16,8 @@ exports.config = {
     "browserName": "chrome"
   },
 
+  multiCapabilities: [],
+
   jasmineNodeOpts: {
     defaultTimeoutInterval: 30000
   },

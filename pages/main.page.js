@@ -22,10 +22,17 @@ export default class MainPage extends BasePage {
         return new LoginPage();
     }
 
+    navigateToSignUp() {
+
+        
+
+        return new SignUpPage();
+    }
+
     waitForPageAvailable() {
         
         browser.wait(ExpectedConditions.visibilityOf(element(_myAccBtn)), browser.params.explicitWait, "myAccBtn not present");
-        
+
         return this;
     }
 
