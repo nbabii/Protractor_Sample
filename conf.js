@@ -31,7 +31,7 @@ exports.config = {
       new jasmine2HtmlReporter({
           savePath: "result",
           screenshotsFolder: "screenshots",
-          showPassed: false,
+          showPassed: true,
           cleanDestination: true
       })
     );

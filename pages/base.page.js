@@ -17,5 +17,3 @@ export default class BasePage {
     }    
 
 }
-
-//export { BasePage };

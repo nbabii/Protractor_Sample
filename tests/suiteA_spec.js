@@ -17,7 +17,7 @@ describe('Suite A', () => {
     const errMsg = MainPage.open()
       .navigateToLogin()
       .loginAsWrongUser("test_test", "pass_test");
-    expect(errMsg).toBe("Invalid Email or Password");
+    expect(errMsg).toBe("Invalid Email or Password");    
   })
 
 });
